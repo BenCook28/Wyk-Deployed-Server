@@ -11,6 +11,6 @@ module.exports = function(app){
 
 	app.get('/splash', function(req, res, next){
 	});
-	app.post('/signup', Auth.signup);
-	app.post('/signin', requireSignin, Auth.signin);
+	app.post('/api/signup', Auth.signup);
+	app.post('/api/signin', requireSignin, Auth.signin);
 }
