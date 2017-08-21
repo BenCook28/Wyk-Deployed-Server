@@ -13,4 +13,15 @@ module.exports = function(app){
 	});
 	app.post('/api/signup', Auth.signup);
 	app.post('/api/signin', requireSignin, Auth.signin);
+	app.post('/api/add-opportunity', (req, res) => {
+		User.update({email: req.body.email}, req.body, (err, updatedUser) => {
+			if (err) {
+				console.log('inside if', err);
+				res.send(err);
+			} else {
+				console.log('inside else');
+				res.send(updatedUser);
+			}
+		})
+	});
 }
